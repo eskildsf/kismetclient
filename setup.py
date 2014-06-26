@@ -7,13 +7,13 @@ def read(fname):
 
 setup(
     name="kismetclient",
-    version="0.5",
-    author="Paul McMillan",
-    author_email="paul@mcmillan.ws",
+    version="0.6",
+    author="Eskild Schroll-Fleischer",
+    author_email="esf@studerende.dk",
     description=("A python client for the Kismet server protocol."),
     license="MIT",
     keywords="kismet client wifi",
-    url="https://github.com/PaulMcMillan/kismetclient",
+    url="https://github.com/eskildsf/kismetclient",
     packages=['kismetclient'],
     long_description=read('README.md'),
     classifiers=[
