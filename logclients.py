@@ -24,6 +24,6 @@ try:
         k.listen()
 except KeyboardInterrupt:
     print('Clients:')
-    for i, client in enumerate(clients):
+    for i, client in enumerate(clients, start=1):
         print('%d. MAC: %s' % (i, client))
     print('%d unique clients have been seen.' % len(clients))
