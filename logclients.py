@@ -1,5 +1,4 @@
 from kismetclient import Client as KismetClient
-from kismetclient import handlers
  
 # Connect to the Kismet server.
 address = ('127.0.0.1', 2501)
@@ -9,12 +8,21 @@ k = KismetClient(address)
 try:
     from sets import Set
     clients = Set()
-except Exception: # In python3 you don't have to explicitly import Sets
+except ImportError: # In python3 you don't have to explicitly import Sets
     clients = set()
- 
-def handle_client(client, mac):
+
+def handle_client(client, **fields):
+    # 0: Access Point, 1: Ad-Hoc, 2: Probe request, 3: Turbocell, 4: Data
+    if int(fields['type']) in (0, 1):
+        return None
     global clients
-    clients.add(mac)
+    l = len(clients)
+    clients.add(fields['mac'])
+    if l != len(clients):
+        print ('-' * 80)
+        print('New device detected:')
+        for k, v in fields.items():
+            print('%s: %s' % (k, v))
  
 k.register_handler('CLIENT', handle_client)                       
  
