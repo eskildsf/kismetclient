@@ -70,7 +70,7 @@ class Client(object):
                               handlers.error,
                               send_enable=False)
         # Open a socket to the kismet server with line-based buffering
-        self.file = socket.create_connection(address).makefile('w', 1)
+        self.file = socket.create_connection(address).makefile('r', 1)
 
         # Bootstrap the server protocols
         self.listen()  # Kismet startup line
