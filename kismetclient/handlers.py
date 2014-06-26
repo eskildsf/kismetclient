@@ -38,5 +38,5 @@ def error(client, cmdid, text):
 def print_fields(client, **fields):
     """ A generic handler which prints all the fields. """
     for k, v in fields.items():
-        print '%s: %s' % (k, v)
-    print '-' * 80
+        print('%s: %s' % (k, v))
+    print ('-' * 80)
