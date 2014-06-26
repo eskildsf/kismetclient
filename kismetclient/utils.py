@@ -2,7 +2,7 @@ import inspect
 
 
 def csv(val):
-    if isinstance(val, basestring):
+    if isinstance(val, str):
         return val.split(',')
     elif hasattr(val, '__iter__'):
         return ','.join(map(str, val))
